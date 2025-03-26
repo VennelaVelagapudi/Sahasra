@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rings Collection | SAHASRA Fine Jewelry</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #81D8D0; /* Tiffany-inspired blue */
+            --secondary-color: #333333;
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --black: #000000;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+        }
+        
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+        
+        .top-bar {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .top-bar a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .top-bar a:hover {
+            color: var(--primary-color);
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: var(--black);
+        }
+        
+        .navbar-nav .nav-link {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 10px 15px;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            font-size: 20px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #6BC5BD;
+            border-color: #6BC5BD;
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .utility-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .utility-icons .nav-link {
+            color: var(--secondary-color);
+            font-size: 16px;
+            padding: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .utility-icons .nav-link:hover {
+            color: var(--primary-color);
+        }
+   
+        .breadcrumb {
+            background-color: transparent;
+            padding: 15px 0;
+            margin-bottom: 0;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--primary-color);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+        }
+        
+        .collection-header {
+            padding: 30px 0;
+            background-color: var(--light-gray);
+            margin-bottom: 40px;
+        }
+        
+        .collection-title {
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+        
+        .filter-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .filter-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .filter-options {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .filter-option {
+            margin-bottom: 10px;
+        }
+        
+        .filter-option label {
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .product-card {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-img {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            height: 50px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .wishlist-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--white);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .product-card:hover .wishlist-btn {
+            opacity: 1;
+        }
+        
+        .pagination {
+            margin-top: 30px;
+        }
+        
+        .pagination .page-link {
+            color: var(--secondary-color);
+            border-color: #eee;
+            padding: 10px 16px;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .pagination .page-link:hover {
+            background-color: #f0f0f0;
+            color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+        
+        .footer h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff; /* Slightly darker shade for hover */
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #ccc;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Product Modal Styles */
+        .product-modal .modal-content {
+            border-radius: 0;
+            border: none;
+        }
+        
+        .product-modal .modal-header {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px 30px;
+        }
+        
+        .product-modal .modal-title {
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        
+        .product-modal .modal-body {
+            padding: 30px;
+        }
+        
+        .product-modal .modal-footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 20px 30px;
+        }
+        
+        .product-modal .product-details-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+        
+        .product-modal .product-description {
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .product-modal .product-meta {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .product-modal .product-meta span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .product-modal .btn-book-appointment {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .product-modal .btn-book-appointment:hover {
+            background-color: #6BC5BD;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 767px) {
+            .filter-sidebar {
+                margin-bottom: 30px;
+            }
+            
+            .collection-title {
+                font-size: 2rem;
+            }
+            
+            .product-img img {
+                height: 220px;
+            }
+            
+            .utility-icons .nav-link {
+                padding: 0 8px;
+            }
+            
+            .filter-toggle-btn {
+                margin-bottom: 20px;
+            }
+            
+            .product-modal .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo-text" href="./index.html">SAHASRA</a>
+            
+            <!-- Hamburger menu button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Mobile only user links BEFORE the main nav links -->
+                <div class="d-lg-none w-100 mobile-user-links">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Find a Boutique</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html"><i class="bi bi-telephone-fill"></i> Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./signin.html"><i class="bi bi-person-fill"></i> Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./create account.html"><i class="bi bi-pencil-square"></i> Create Account</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Main navigation links -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Necklaces</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="./rings.html">Rings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Earrings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bracelets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chains</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Jewelry</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Rings</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Collection Header -->
+    <div class="collection-header">
+        <div class="container">
+            <h1 class="collection-title">Rings Collection</h1>
+            <p class="collection-description">Discover our exquisite selection of rings crafted with the finest materials and unparalleled artistry. From statement pieces to delicate everyday designs, find the perfect expression of your personal style.</p>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="container mb-5">
+        <div class="row">
+            <!-- Mobile Filter Toggle Button - Only visible on small screens -->
+            <div class="col-12 d-md-none mb-4">
+                <button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#filterSidebar" aria-expanded="false" aria-controls="filterSidebar">
+                    <i class="bi bi-funnel me-2"></i> Filter Products
+                </button>
+            </div>
+
+            <!-- Filters Sidebar - Collapsible on mobile -->
+            <div class="col-md-3 filter-sidebar collapse d-md-block" id="filterSidebar">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="mb-3">Filters</h5>
+                        <!-- Mobile-only filter buttons -->
+                        <div class="d-md-none mb-3">
+                            <button class="btn btn-primary w-100 mb-2" id="applyFiltersBtn">Apply Filters</button>
+                            <button class="btn btn-outline-secondary w-100" id="clearFiltersBtn">Clear All Filters</button>
+                        </div>
+                        <!-- Desktop-only clear button -->
+                        <button class="btn btn-sm btn-outline-secondary mb-3 d-none d-md-block">Clear All Filters</button>
+                        
+                        <!-- Material Filter -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Material</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="goldFilter">
+                                    <label class="form-check-label" for="goldFilter">Gold</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="whiteGoldFilter">
+                                    <label class="form-check-label" for="whiteGoldFilter">White Gold</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="roseGoldFilter">
+                                    <label class="form-check-label" for="roseGoldFilter">Rose Gold</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="platinumFilter">
+                                    <label class="form-check-label" for="platinumFilter">Platinum</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="silverFilter">
+                                    <label class="form-check-label" for="silverFilter">Silver</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stone Type Filter -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Stone Type</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="diamondFilter">
+                                    <label class="form-check-label" for="diamondFilter">Diamond</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="rubyFilter">
+                                    <label class="form-check-label" for="rubyFilter">Ruby</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="sapphireFilter">
+                                    <label class="form-check-label" for="sapphireFilter">Sapphire</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="emeraldFilter">
+                                    <label class="form-check-label" for="emeraldFilter">Emerald</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="pearlFilter">
+                                    <label class="form-check-label" for="pearlFilter">Pearl</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Style Filter -->
+                        <div class="filter-section">
+                            <h6 class="filter-title">Style</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="solitaireFilter">
+                                    <label class="form-check-label" for="solitaireFilter">Solitaire</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="haloFilter">
+                                    <label class="form-check-label" for="haloFilter">Halo</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="threeStoneFilter">
+                                    <label class="form-check-label" for="threeStoneFilter">Three-Stone</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="vintageFilter">
+                                    <label class="form-check-label" for="vintageFilter">Vintage</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input class="form-check-input" type="checkbox" value="" id="stackableFilter">
+                                    <label class="form-check-label" for="stackableFilter">Stackable</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="col-md-9">
+                <!-- Sorting and View Options -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="results-count">
+                        Showing <span class="fw-bold">12</span> of <span class="fw-bold">36</span> products
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="row" id="products-grid">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Product pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                <i class="bi bi-chevron-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- You Might Also Like Section -->
+    <div class="container mt-5 mb-5">
+        <div class="text-center mb-4">
+            <h2 class="collection-title">You Might Also Like</h2>
+            <p class="text-muted">Discover more beautiful pieces from our collection</p>
+        </div>
+        
+        <div class="row">
+            <!-- Bracelet -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-victoriatennis-bracelet-32948243_993674_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp" alt="Diamond Tennis Bracelet">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Diamond Tennis Bracelet</h3>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chain -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-knotearrings-69346472_1028572_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp" alt="Knot Drop Earrings">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Knot Drop Earrings</h3>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Men's Ring -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-twide-ring-36509929_960204_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp" alt="Men's Gold Ring">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Men's Gold Ring</h3>
+                        <div class="product-actions">
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal fade product-modal" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="productDetailsModalLabel">Product Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <img id="modalProductImage" src="" alt="Product Image" class="product-details-img">
+                </div>
+                <div class="col-md-6">
+                  <h3 id="modalProductName" class="mb-3"></h3>
+                  <p id="modalProductDescription" class="product-description"></p>
+                  <div class="product-meta">
+                    <span><strong>Material:</strong> <span id="modalProductMaterial"></span></span>
+                    <span><strong>Stone:</strong> <span id="modalProductStone"></span></span>
+                    <span><strong>Style:</strong> <span id="modalProductStyle"></span></span>
+                  </div>
+                  <button class="btn btn-book-appointment w-100">Book Appointment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="./contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Product Care</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4>About SAHASRA</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Craftsmanship</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Complimentary Sizing</a></li>
+                        <li><a href="#">Engraving</a></li>
+                        <li><a href="#">Gift Wrapping</a></li>
+                        <li><a href="#">Jewelry Repair</a></li>
+                        <li><a href="#">Bespoke Creations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4>Payment Methods</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa me-2"></i>
+                        <i class="fab fa-cc-mastercard me-2"></i>
+                        <i class="fab fa-cc-amex me-2"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sahasra Jewelry. All Rights Reserved.</p>
+                <p>
+                    <a href="#" class="footer-link me-3">Privacy Policy</a>
+                    <a href="#" class="footer-link me-3">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Product data array
+        const products = [
+            {
+                id: 1,
+                name: "Diamond Solitaire Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-victoriavine-ring-68268109_1025695_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning diamond solitaire ring featuring a brilliant-cut diamond in a classic platinum setting.",
+                material: "Platinum",
+                stone: "Diamond",
+                style: "Solitaire"
+            },
+            {
+                id: 2,
+                name: "Vintage Ruby Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/jean-schlumberger-by-tiffanysixteen-stone-ring-23429446_1041816_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "An exquisite vintage-inspired ruby ring featuring a vibrant center stone.",
+                material: "Rose Gold",
+                stone: "Ruby",
+                style: "Vintage"
+            },
+            {
+                id: 3,
+                name: "Emerald Halo Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-foreverband-ring-16029289_1039831_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A captivating emerald halo ring featuring a vibrant center emerald.",
+                material: "White Gold",
+                stone: "Emerald",
+                style: "Halo"
+            },
+            {
+                id: 4,
+                name: "Pearl Accent Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-lockring-72342968_1062315_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A delicate ring featuring a lustrous pearl accent.",
+                material: "Rose Gold",
+                stone: "Pearl",
+                style: "Modern"
+            },
+            {
+                id: 5,
+                name: "Sapphire Three-Stone Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-three-stone-engagement-ring-in-platinum-61916830_996417_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "An elegant three-stone ring featuring a stunning blue sapphire center stone.",
+                material: "Platinum",
+                stone: "Sapphire",
+                style: "Three-Stone"
+            },
+            {
+                id: 6,
+                name: "Narrow Diamond Ring",
+                img: "https://cdn.pixelspray.io/v2/black-bread-289bfa/HYDUHb/wrkr/t.resize(h:575,w:575)/data/Tiffany/05Aug2020/74250_1.jpg",
+                description: "Narrow ring design featuring scintillating round brilliant diamonds and an iconic T motif.",
+                material: "Rose Gold",
+                stone: "Diamond",
+                style: "Narrow"
+            },
+            {
+                id: 7,
+                name: "Ruby Cluster Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-knotring-69346863_1029033_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning cluster ring featuring vibrant rubies.",
+                material: "Gold",
+                stone: "Ruby",
+                style: "Cluster"
+            },
+            {
+                id: 8,
+                name: "Emerald Statement Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/elsa-perettidiamond-hoop-ring-60408807_973338_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A bold statement ring showcasing a rich emerald.",
+                material: "White Gold",
+                stone: "Emerald",
+                style: "Statement"
+            },
+            {
+                id: 9,
+                name: "Pearl and Diamond Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-metrofive-row-ring-26232856_1047825_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "An elegant ring featuring a central pearl.",
+                material: "White Gold",
+                stone: "Pearl",
+                style: "Classic"
+            },
+            {
+                id: 10,
+                name: "Sapphire Vintage Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/palomas-groovering-62032898_1030867_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A vintage-inspired ring with a deep blue sapphire center stone.",
+                material: "White Gold",
+                stone: "Sapphire",
+                style: "Vintage"
+            },
+            {
+                id: 11,
+                name: "Pearl Cluster Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-hardwearfreshwater-pearl-ring-in-sterling-silver-64048457_1004020_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "An elegant cluster ring featuring freshwater pearls in a modern arrangement.",
+                material: "White Gold",
+                stone: "Pearl",
+                style: "Cluster"
+            },
+            {
+                id: 12,
+                name: "Diamond Halo Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-solestev-ring-60875499_977200_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A classic halo ring featuring a brilliant diamond center stone.",
+                material: "Platinum",
+                stone: "Diamond",
+                style: "Halo"
+            },
+            {
+                id: 13,
+                name: "Ruby Solitaire Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-novoround-ruby-ring-69542158_1027295_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning solitaire ring featuring a vibrant ruby center stone.",
+                material: "Gold",
+                stone: "Ruby",
+                style: "Solitaire"
+            },
+            {
+                id: 14,
+                name: "Emerald Statement Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/emerald-cut-diamond-engagement-ring-in-platinum-32397735_996080_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A bold statement ring featuring a large emerald center stone.",
+                material: "White Gold",
+                stone: "Emerald",
+                style: "Statement"
+            },
+            {
+                id: 15,
+                name: "Pearl Vintage Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-tdiamond-wire-band-ring-34818355_992001_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A vintage-inspired ring featuring a lustrous pearl in an ornate setting.",
+                material: "Rose Gold",
+                stone: "Pearl",
+                style: "Vintage"
+            },
+            {
+                id: 16,
+                name: "Sapphire Three-Stone Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-three-stone-engagement-ring-with-sapphire-side-stones-in-platinum-61701001_996123_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "An elegant three-stone ring featuring sapphires and diamond accents.",
+                material: "Platinum",
+                stone: "Sapphire",
+                style: "Three-Stone"
+            },
+            {
+                id: 17,
+                name: "Ruby Cluster Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-legacyband-ring-60940282_985050_ED.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A beautiful cluster ring featuring vibrant rubies.",
+                material: "White Gold",
+                stone: "Ruby",
+                style: "Cluster"
+            },
+            {
+                id: 18,
+                name: "Diamond Solitaire Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-victoriavine-ring-68268109_1025695_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning diamond solitaire ring featuring a brilliant-cut diamond in a classic platinum setting.",
+                material: "Platinum",
+                stone: "Diamond",
+                style: "Solitaire"
+            },
+            {
+                id: 19,
+                name: "Double Row Ring",
+                img: "https://cdn.pixelspray.io/v2/black-bread-289bfa/HYDUHb/wrkr/t.resize(h:575,w:575)/data/Tiffany/29032022/8174118_1.jpg",
+                description: "Crafted with yellow gold and polished by hand for high shine. ",
+                material: "Yellow Gold",
+                stone: "Diamond",
+                style: "Halo"
+            },
+            {
+                id: 20,
+                name: "Platinum Band Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-foreverband-ring-15400331_1044055_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A sleek platinum band ring with a polished finish.",
+                material: "Platinum",
+                stone: "None",
+                style: "Classic Band"
+            },
+            {
+                id: 21,
+                name: "Diamond Solitaire Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-victoriavine-ring-68268109_1025695_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning diamond solitaire ring featuring a brilliant-cut diamond in a classic platinum setting.",
+                material: "Platinum",
+                stone: "Diamond",
+                style: "Solitaire"
+            },
+            {
+                id: 23,
+                name: "Platinum Band Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-foreverband-ring-15400331_1044055_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A sleek platinum band ring with a polished finish. Minimalist design showcases the beauty of the platinum metal. Perfect as a wedding band or everyday signature piece.",
+                material: "Platinum, 950",
+                stone: "None",
+                style: "Classic Band"
+            },
+            {
+                id: 24,
+                name: "Diamond Solitaire Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-victoriavine-ring-68268109_1025695_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning diamond solitaire ring featuring a brilliant-cut diamond in a classic platinum setting.",
+                material: "Platinum",
+                stone: "Diamond",
+                style: "Solitaire"
+            },
+            {
+                id: 25,
+                name: "X Open Ring",
+                img: "https://cdn.pixelspray.io/v2/black-bread-289bfa/HYDUHb/wrkr/t.resize(h:560,w:560)/data/Tiffany/10-11-2021/7963100_1.jpg",
+                description: "A stunning diamond solitaire ring featuring a brilliant-cut diamond in a classic platinum setting.",
+                material: "Rose Gold",
+                stone: "Diamond",
+                style: "Halo"
+            },
+            {
+                id: 26,
+                name: "Platinum Band Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-foreverband-ring-15400331_1044055_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A sleek platinum band ring with a polished finish. Minimalist design showcases the beauty of the platinum metal. Perfect as a wedding band or everyday signature piece.",
+                material: "Platinum, 950",
+                stone: "None",
+                style: "Classic Band"
+            },
+            {
+                id: 27,
+                name: "Diamond Solitaire Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-victoriavine-ring-68268109_1025695_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A stunning diamond solitaire ring featuring a brilliant-cut diamond in a classic platinum setting.",
+                material: "Platinum",
+                stone: "Diamond",
+                style: "Solitaire"
+            },
+            {
+                id: 28,
+                name: "Olive Leaf Band Ring",
+                img: "https://cdn.pixelspray.io/v2/black-bread-289bfa/HYDUHb/wrkr/t.resize(h:575,w:575)/data/Tiffany/25-10-2021/7953071_1.jpg",
+                description: "With beautifully sculpted leaves, Paloma honors the olive branch, a symbol of peace",
+                material: "Rose Gold",
+                stone: "Diamond",
+                style: "Stackable"
+            },
+            {
+                id: 29,
+                name: "Platinum Band Ring",
+                img: "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-foreverband-ring-15400331_1044055_ED_M.jpg?defaultImage=NoImageAvailableInternal&fmt=webp",
+                description: "A sleek platinum band ring with a polished finish. Minimalist design showcases the beauty of the platinum metal. Perfect as a wedding band or everyday signature piece.",
+                material: "Platinum, 950",
+                stone: "None",
+                style: "Classic Band"
+            },
+            
+        ];
+
+        // Current filters state
+        const currentFilters = {
+            material: [],
+            stone: [],
+            style: []
+        };
+
+        // Pagination state
+        let currentPage = 1;
+        const productsPerPage = 12;
+
+        // Function to render products with pagination
+        function renderProducts(productsToRender) {
+            const productsGrid = document.getElementById('products-grid');
+            productsGrid.innerHTML = '';
+
+            // Calculate pagination
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = startIndex + productsPerPage;
+            const paginatedProducts = productsToRender.slice(startIndex, endIndex);
+            const totalPages = Math.ceil(productsToRender.length / productsPerPage);
+
+            if (paginatedProducts.length === 0) {
+                productsGrid.innerHTML = '<div class="col-12 text-center"><p>No products match your selected filters.</p></div>';
+                return;
+            }
+
+            // Render products for current page
+            paginatedProducts.forEach(product => {
+                const productHTML = `
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="${product.img}" alt="${product.name}">
+                </div>
+                            <div class="product-info">
+                                <h3 class="product-title">${product.name}</h3>
+                                <div class="product-actions">
+                                    <button type="button" class="btn btn-sm btn-outline-primary view-details-btn" 
+                                        data-product-id="${product.id}" 
+                                        data-product-name="${product.name}" 
+                                        data-product-img="${product.img}"
+                                        data-product-description="${product.description}"
+                                        data-product-material="${product.material}"
+                                        data-product-stone="${product.stone}"
+                                        data-product-style="${product.style}">
+                                        View Details
+                                    </button>
+                </div>
+                </div>
+                    </div>
+                    </div>
+                `;
+                productsGrid.innerHTML += productHTML;
+            });
+
+            // Update results count
+            const resultsCount = document.querySelector('.results-count');
+            if (resultsCount) {
+                resultsCount.innerHTML = `Showing <span class="fw-bold">${startIndex + 1}-${Math.min(endIndex, productsToRender.length)}</span> of <span class="fw-bold">${productsToRender.length}</span> products`;
+            }
+
+            // Update pagination
+            updatePagination(totalPages);
+
+            // Reattach event listeners to view details buttons
+            attachViewDetailsListeners();
+        }
+
+        // Function to update pagination UI
+        function updatePagination(totalPages) {
+            const pagination = document.querySelector('.pagination');
+            pagination.innerHTML = '';
+
+            // Previous button
+            pagination.innerHTML += `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage - 1}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+            `;
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.innerHTML += `
+                    <li class="page-item ${currentPage === i ? 'active' : ''}">
+                        <a class="page-link" href="#" data-page="${i}">${i}</a>
+                    </li>
+                `;
+            }
+
+            // Next button
+            pagination.innerHTML += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${currentPage + 1}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+            `;
+
+            // Add click event listeners to pagination links
+            pagination.querySelectorAll('.page-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const newPage = parseInt(this.dataset.page);
+                    if (newPage >= 1 && newPage <= totalPages) {
+                        currentPage = newPage;
+                        filterProducts();
+                        
+                        // Smooth scroll to products section
+                        const productsSection = document.querySelector('.container.mb-5');
+                        if (productsSection) {
+                            productsSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Function to filter products
+        function filterProducts() {
+            let filteredProducts = [...products];
+
+            // Apply material filter
+            if (currentFilters.material.length > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    currentFilters.material.some(material => 
+                        product.material.toLowerCase().includes(material.toLowerCase())
+                    )
+                );
+            }
+
+            // Apply stone filter
+            if (currentFilters.stone.length > 0) {
+                filteredProducts = filteredProducts.filter(product => {
+                    if (!product.stone || product.stone === "None") return false;
+                    const productStone = product.stone.toLowerCase();
+                    return currentFilters.stone.some(stone => 
+                        productStone === stone.toLowerCase()
+                    );
+                });
+            }
+
+            // Apply style filter
+            if (currentFilters.style.length > 0) {
+                filteredProducts = filteredProducts.filter(product => 
+                    currentFilters.style.some(style => 
+                        product.style.toLowerCase().includes(style.toLowerCase())
+                    )
+                );
+            }
+
+            renderProducts(filteredProducts);
+        }
+
+        // Function to handle filter changes
+        function handleFilterChange(category, value, checked) {
+            if (checked) {
+                currentFilters[category].push(value);
+            } else {
+                currentFilters[category] = currentFilters[category].filter(item => item !== value);
+            }
+            currentPage = 1; // Reset to first page when filters change
+            filterProducts();
+        }
+
+        // Function to clear all filters
+        function clearFilters() {
+            currentFilters.material = [];
+            currentFilters.stone = [];
+            currentFilters.style = [];
+            currentPage = 1; // Reset to first page
+            
+            // Uncheck all checkboxes
+            document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            
+            renderProducts(products);
+        }
+
+        // Function to attach view details listeners
+        function attachViewDetailsListeners() {
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                    const modal = new bootstrap.Modal(document.getElementById('productDetailsModal'));
+                    
+                    // Update modal content
+                    document.getElementById('modalProductImage').src = this.dataset.productImg;
+                    document.getElementById('modalProductName').textContent = this.dataset.productName;
+                    document.getElementById('modalProductDescription').textContent = this.dataset.productDescription;
+                    document.getElementById('modalProductMaterial').textContent = this.dataset.productMaterial;
+                    document.getElementById('modalProductStone').textContent = this.dataset.productStone;
+                    document.getElementById('modalProductStyle').textContent = this.dataset.productStyle;
+                    
+                    modal.show();
+            });
+          });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial render
+            renderProducts(products);
+
+            // Add event listeners to filter checkboxes
+            document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let category = this.closest('.filter-section').querySelector('.filter-title').textContent.toLowerCase();
+                    // Map "stone type" to "stone"
+                    if (category === "stone type") {
+                        category = "stone";
+                    }
+                    const value = this.nextElementSibling.textContent.trim();
+                    handleFilterChange(category, value, this.checked);
+                });
+            });
+
+            // Add event listener to clear filters button for desktop
+            document.querySelector('.d-none.d-md-block.btn-outline-secondary').addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                clearFilters();
+            });
+
+            // Add event listeners for mobile filter buttons
+            const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+            const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+            const filterSidebar = document.getElementById('filterSidebar');
+
+            if (applyFiltersBtn && clearFiltersBtn && filterSidebar) {
+                // Apply filters button
+                applyFiltersBtn.addEventListener('click', function() {
+                    currentPage = 1; // Reset to first page
+                    filterProducts();
+                    // Close the filter sidebar on mobile
+                    const bsCollapse = new bootstrap.Collapse(filterSidebar, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                });
+
+                // Clear filters button
+                clearFiltersBtn.addEventListener('click', function() {
+                    clearFilters();
+                    // Close the filter sidebar on mobile
+                    const bsCollapse = new bootstrap.Collapse(filterSidebar, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                });
+            }
+
+            // Add event listener for Book Appointment button
+            document.querySelector('.btn-book-appointment').addEventListener('click', function() {
+                alert('Booking functionality would go here!');
+            });
+        });
+      </script>
+</body>
+</html>

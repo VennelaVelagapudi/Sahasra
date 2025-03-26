@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahasra | Fine Jewelry & Luxury Gifts</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #81D8D0; /* Tiffany-inspired blue */
+            --secondary-color: #333333;
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --black: #000000;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+        }
+        
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+        
+        /* Top Bar Styles */
+        .top-bar {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .top-bar a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .top-bar a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: var(--black);
+        }
+        
+        .navbar-nav .nav-link {
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 10px 15px;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            font-size: 20px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        /* Mobile navigation styles */
+        .mobile-nav-divider {
+            height: 1px;
+            background-color: #f0f0f0;
+            margin: 10px 0;
+        }
+        
+        .mobile-user-links {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 5px;
+        }
+        
+        .mobile-user-links .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+        
+        .mobile-user-links .nav-link i {
+            margin-right: 10px;
+        }
+        
+        /* Utility Icons */
+        .utility-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .utility-icons .nav-link {
+            color: var(--secondary-color);
+            font-size: 16px;
+            padding: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .utility-icons .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .search-dropdown .dropdown-menu {
+            min-width: 250px;
+            padding: 10px;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #6BC5BD;
+            border-color: #6BC5BD;
+        }
+        
+        .btn-outline-light {
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        /* Category Cards */
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 400px;
+        }
+        
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 30px 20px;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        /* Section Styles */
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        
+        /* Product Cards */
+        .product-card {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-img {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background-color: var(--light-gray);
+        }
+        
+        .about-content h2 {
+            margin-bottom: 25px;
+            font-size: 2.3rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* Testimonial Styles */
+        .testimonial-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: #333333;
+            color: #ffffff;
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+        
+        .footer h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer ul li a:hover {
+            color: #81D8D0;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #ccc;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #81D8D0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 767px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+            
+            /* Adjust spacing for mobile utility icons */
+            .utility-icons .nav-link {
+                padding: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop top bar - only visible on medium screens and up -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-start">
+                    <a href="#" class="me-3"><i class="bi bi-geo-alt-fill me-1"></i> Find a Boutique</a>
+                    <a href="./contact.html"><i class="bi bi-telephone-fill me-1"></i> Contact Us</a>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="./signin.html" class="me-3"><i class="bi bi-person-fill me-1"></i> Sign In</a>
+                    <a href="./create account.html"><i class="bi bi-pencil-square me-1"></i> Create Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo-text" href="./index.html">SAHASRA</a>
+            
+            <!-- Hamburger menu button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Mobile only user links BEFORE the main nav links -->
+                <div class="d-lg-none w-100 mobile-user-links">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Find a Boutique</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html"><i class="bi bi-telephone-fill"></i> Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./signin.html"><i class="bi bi-person-fill"></i> Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./create account.html"><i class="bi bi-pencil-square"></i> Create Account</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Main navigation links -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Necklaces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./rings.html">Rings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Earrings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./bracelets.html">Bracelets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chains</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_SBC_Bracelets?$tile$&&fmt=webp" alt="Bracelets">
+                        <div class="category-overlay">
+                            <h3>Bracelets</h3>
+                            <a href="./bracelets.html" class="btn btn-outline-light mt-2">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="https://media.tiffany.com/is/image/tiffanydm/2024_HOLIDAY_HP_SBC_Rings-1?$tile$&&fmt=webp" alt="Rings">
+                        <div class="category-overlay">
+                            <h3>Rings</h3>
+                            <a href="./products.html" class="btn btn-outline-light mt-2">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_SBC_Earrings?$tile$&&fmt=webp" alt="Earrings">
+                        <div class="category-overlay">
+                            <h3>Earrings</h3>
+                            <a href="#" class="btn btn-outline-light mt-2">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_SBC_EngagementRings?$tile$&&fmt=webp" alt="Diamond Solitaire Ring">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Diamond Solitaire Ring</h3>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_SBC_Earrings?$tile$&&fmt=webp" alt="Pearl Drop Earrings">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pearl Drop Earrings</h3>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_SBC_Bracelets?$tile$&&fmt=webp" alt="Gold Chain Bracelet">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Gold Chain Bracelet</h3>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_50_50_GIFTSFORHER_Desktop?$tile$&wid=1088&hei=1360&fmt=webp" alt="Sapphire Pendant">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Sapphire Pendant</h3>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://media.tiffany.com/is/image/tiffanydm/2025_VDAY_HP_50_50_NEW1_Desktop?$tile$&wid=1088&hei=1360&fmt=webp" alt="About Us" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <h2>Sahasra Jewellers</h2>
+                        <p>Since 2014, SAHASRA has been dedicated to creating exquisite jewelry pieces that capture moments and emotions in precious metals and gemstones. Our master craftsmen combine traditional techniques with innovative design to create heirlooms worthy of your most cherished memories.</p>
+                        <p>Each creation tells a unique story, reflecting our passion for beauty and commitment to uncompromising quality. We source only the finest materials from ethical suppliers, ensuring that every piece not only dazzles the eye but honors our responsibility to the planet and communities we touch.</p>
+                        <a href="#" class="btn btn-primary mt-3">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">
+                            "My engagement ring from SAHASRA surpassed all expectations. The craftsmanship is impeccable, and the customer service made the experience truly special. Five years later, it still sparkles like the day we got it."
+                        </div>
+                        <div class="testimonial-author">— Catherine M.</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">
+                            "I've been collecting SAHASRA pieces for over a decade. Each item is a work of art that I'm proud to wear and will eventually pass down to my daughter. Their attention to detail is unmatched in the industry."
+                        </div>
+                        <div class="testimonial-author">— Jonathan P.</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">
+                            "The custom anniversary necklace I commissioned was beyond beautiful. The design team listened to my vision and transformed it into something even more magnificent than I imagined."
+                        </div>
+                        <div class="testimonial-author">— Elizabeth R.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="./contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Product Care</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4>About SAHASRA</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Craftsmanship</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Complimentary Sizing</a></li>
+                        <li><a href="#">Engraving</a></li>
+                        <li><a href="#">Gift Wrapping</a></li>
+                        <li><a href="#">Jewelry Repair</a></li>
+                        <li><a href="#">Bespoke Creations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <h4>Payment Methods</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa me-2"></i>
+                        <i class="fab fa-cc-mastercard me-2"></i>
+                        <i class="fab fa-cc-amex me-2"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sahasra Jewelry. All Rights Reserved.</p>
+                <p>
+                    <a href="#" class="footer-link me-3">Privacy Policy</a>
+                    <a href="#" class="footer-link me-3">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
